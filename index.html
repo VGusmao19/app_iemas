@@ -15,12 +15,10 @@
     font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
   .container{max-width:var(--container);margin:0 auto;padding:16px 16px 24px}
 
-  /* Header */
   .header{padding:10px 16px}
   .title{font-weight:700;text-align:center;margin:6px 0 2px}
   .subtitle{color:var(--muted);text-align:center;font-size:14px;margin:0 0 8px}
 
-  /* Lista */
   .hint{margin:18px 0 10px;font-weight:600}
   .list{display:grid;gap:12px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;
@@ -32,7 +30,6 @@
   .card .type{margin:0;color:var(--muted);font-size:13px}
   .card .chev{margin-left:auto;opacity:.55}
 
-  /* Detalhes */
   .screen{display:none}
   .screen.active{display:block}
   .topbar{display:flex;gap:8px;align-items:center;margin-bottom:8px}
@@ -48,24 +45,20 @@
   .section-title{margin:18px 0 8px;font-weight:700}
   .p{margin:0;color:#1f2937}
 
-  /* Cursos (lista com descrição) */
   .course{border:1px solid var(--line);background:#eceff3;border-radius:10px;
     padding:10px 12px;margin-bottom:10px}
   .course b{display:block;margin-bottom:4px}
 
-  /* Detalhes (dl) */
   dl{margin:0}
   dt{font-weight:600;margin-top:10px}
   dd{margin:4px 0 0;color:#1f2937}
 
-  /* Localização */
   .map{border:1px dashed #cbd5e1;border-radius:12px;background:linear-gradient(180deg,#f8fafc,#f1f5f9);
     height:160px;display:grid;place-items:center;color:#64748b;font-size:14px}
   .address{margin:8px 0 0;color:#1f2937}
   .list-dots{margin:6px 0 0 18px;color:#1f2937}
   .list-dots li{margin:4px 0}
 
-  /* Ação inferior */
   .sticky-action{position:sticky;bottom:0;background:var(--bg);padding:12px 16px}
   .btn{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px;
     border-radius:10px;border:1px solid #0f172a;background:var(--accent);color:#fff;
@@ -74,7 +67,6 @@
 </head>
 <body>
 
-<!-- TELA 1: Lista -->
 <section id="screen-list" class="screen active">
   <header class="header">
     <h1 class="title">IEMA</h1>
@@ -83,35 +75,7 @@
 
   <div class="container">
     <p class="hint">Selecione uma unidade:</p>
-    <div class="list" id="list">
-      <!-- adicione/remova conforme necessário -->
-      <button class="card" data-key="IEMA PLENO SÃO LUÍS – CENTRO">
-        <span class="icon">🏫</span>
-        <span class="meta">
-          <p class="name">IEMA PLENO SÃO LUÍS – CENTRO</p>
-          <p class="type">Centro</p>
-        </span>
-        <span class="chev">→</span>
-      </button>
-
-      <!-- Exemplo: outros itens ficam com conteúdo padrão até você preencher no DATA -->
-      <button class="card" data-key="IEMA PLENO SÃO LUÍS – BACELAR PORTELA">
-        <span class="icon">🏫</span>
-        <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – BACELAR PORTELA</p><p class="type">Centro</p></span>
-        <span class="chev">→</span>
-      </button>
-      <button class="card" data-key="IEMA PLENO SÃO LUÍS – CIDADE DE SÃO LUÍS">
-        <span class="icon">🏫</span>
-        <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – CIDADE DE SÃO LUÍS</p><p class="type">Centro</p></span>
-        <span class="chev">→</span>
-      </button>
-      <button class="card" data-key="IEMA PLENO SÃO LUÍS – DESEMBARGADOR SARNEY">
-        <span class="icon">🏫</span>
-        <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – DESEMBARGADOR SARNEY</p><p class="type">Centro</p></span>
-        <span class="chev">→</span>
-      </button>
-      <!-- ...adicione as demais unidades aqui com data-key correspondente ao nome... -->
-    </div>
+    <div class="list" id="list"></div>
 
     <p class="subtitle" style="margin-top:16px;text-align:center">
       Acesse informações sobre cursos, localização e muito mais
@@ -119,11 +83,10 @@
   </div>
 </section>
 
-<!-- TELA 2: Detalhes -->
-<section id="screen-detail" class="screen" aria-live="polite">
+<section id="screen-detail" class="screen">
   <div class="container">
     <div class="topbar">
-      <button class="back" id="btnBack" aria-label="Voltar">←</button>
+      <button class="back" id="btnBack">←</button>
       <strong>Detalhes da Unidade</strong>
     </div>
 
@@ -136,21 +99,15 @@
         </div>
       </div>
 
-      <!-- SOBRE -->
       <h3 class="section-title">Sobre a Instituição</h3>
-      <p id="about" class="p">
-        <!-- cai o texto do DATA.about -->
-      </p>
+      <p id="about" class="p"></p>
 
-      <!-- CURSOS -->
       <h3 class="section-title">Cursos Oferecidos</h3>
       <div id="courses"></div>
 
-      <!-- DETALHES -->
       <h3 class="section-title">Detalhes da Instituição</h3>
       <dl id="details"></dl>
 
-      <!-- LOCALIZAÇÃO -->
       <h3 class="section-title">Localização</h3>
       <div class="map">Mapa/preview da localização</div>
       <p id="address" class="address"></p>
@@ -171,156 +128,135 @@
 </section>
 
 <script>
-/* ====== DADOS INDIVIDUAIS POR UNIDADE ======
-   Edite/adicione blocos aqui. A chave deve ser
-   exatamente igual ao atributo data-key do botão. */
-const DATA = {
-  "IEMA PLENO SÃO LUÍS – CENTRO": {
+const UNIDADES = [
+  "IEMA PLENO SÃO LUÍS – BACELAR PORTELA",
+  "IEMA PLENO SÃO LUÍS – CENTRO",
+  "IEMA PLENO SÃO LUÍS – CIDADE DE SÃO LUÍS",
+  "IEMA PLENO SÃO LUÍS – DESEMBARGADOR SARNEY",
+  "IEMA PLENO SÃO LUÍS – GONÇALVES DIAS",
+  "IEMA PLENO SÃO LUÍS – ITAQUI BACANGA",
+  "IEMA PLENO SÃO LUÍS – JARDIM AMÉRICA",
+  "IEMA PLENO SÃO LUÍS – MANOEL BECKMAN",
+  "IEMA PLENO SÃO LUÍS – MÁRIO MARTINS MEIRELES",
+  "IEMA PLENO SÃO LUÍS – MÔNICA VALE",
+  "IEMA PLENO SÃO LUÍS – NEWTON BARJONAS LOBÃO",
+  "IEMA PLENO SÃO LUÍS – RIO ANIL",
+  "IEMA PLENO SÃO LUÍS – SOUSÂNDRADE",
+  "IEMA PLENO SÃO LUÍS – TAMANCÃO"
+];
+
+// === dados individuais ===
+const DATA = {};
+UNIDADES.forEach(nome => {
+  DATA[nome] = {
     type: "Centro",
-    about: "Unidade Plena São Luís Centro.",
+    about: "Informações ainda não cadastradas para esta unidade.",
     courses: [
-      { name: "Administração",
-        desc: "Executar atividades de gestão como planejamento, organização e liderança." },
-      { name: "Informática",
-        desc: "Foco em programação, sistemas operacionais e bancos de dados." },
-      { name: "Redes de Computadores",
-        desc: "Manter infraestruturas de redes, configurar equipamentos e gerenciar servidores." },
-      { name: "Desenvolvimento de Sistemas",
-        desc: "Projetar, codificar, testar e manter sistemas e aplicativos." }
+      {name: "Curso 1", desc: "Descrição exemplo."},
+      {name: "Curso 2", desc: "Descrição exemplo."}
     ],
     hours: "Segunda à Sexta, 08:00 às 19:00",
-    modalities: ["Futsal","Vôlei","Natação","Arco e flecha","Robótica"],
-    hasCourt: true,
-    lunch: "Sim — frango, carne bovina e carne suína.",
-    address: "Rua Osvaldo Cruz, 954, Centro — São Luís/MA",
-    coords: "2°32'25\" S, 44°17'30\" L", // “Leste” (corrigindo ‘Deste’)
-    howTo: ["Circular Radional/Deodoro"],
-    references: [
-      "Ribeira / IPASE via terminais",
-      "Cohama",
-      "Maranhão Cultura e Turismo",
-      "Liceu Maranhense"
-    ]
-  },
-
-  // Exemplo de molde para as demais unidades:
-  "IEMA PLENO SÃO LUÍS – BACELAR PORTELA": {
-    type: "Centro",
-    about: "Lorem ipsum dolor sit amet.",
-    courses: [
-      {name:"Técnico 1",desc:"Lorem ipsum dolor sit amet."},
-      {name:"Técnico 2",desc:"Lorem ipsum dolor sit amet."}
-    ],
-    hours: "Seg–Sex, 08:00–19:00",
     modalities: ["Futsal","Vôlei"],
-    hasCourt: false,
-    lunch: "Sem informações.",
-    address: "Endereço a definir",
+    hasCourt: true,
+    lunch: "Sim, refeição completa para alunos.",
+    address: "Endereço ainda não informado.",
     coords: "—",
-    howTo: [],
-    references: []
-  },
-
-  "IEMA PLENO SÃO LUÍS – CIDADE DE SÃO LUÍS": {
-    type:"Centro", about:"Conteúdo padrão.", courses:[], hours:"—",
-    modalities:[], hasCourt:null, lunch:"—", address:"—", coords:"—",
-    howTo:[], references:[]
-  },
-
-  "IEMA PLENO SÃO LUÍS – DESEMBARGADOR SARNEY": {
-    type:"Centro", about:"Conteúdo padrão.", courses:[], hours:"—",
-    modalities:[], hasCourt:null, lunch:"—", address:"—", coords:"—",
-    howTo:[], references:[]
+    howTo: ["Rotas de transporte em atualização."],
+    references: ["Referências próximas em atualização."]
   }
-  // → continue adicionando as demais unidades aqui
-};
-
-/* ====== UI/NAVEGAÇÃO ====== */
-const screenList   = document.getElementById('screen-list');
-const screenDetail = document.getElementById('screen-detail');
-const back         = document.getElementById('btnBack');
-
-const elName   = document.getElementById('detailName');
-const elType   = document.getElementById('detailType');
-const elAbout  = document.getElementById('about');
-const elCourses= document.getElementById('courses');
-const elDetails= document.getElementById('details');
-const elAddr   = document.getElementById('address');
-const elCoords = document.getElementById('coords');
-const elHow    = document.getElementById('howto');
-const elRefs   = document.getElementById('refs');
-
-function renderDetail(key){
-  // nome no topo
-  elName.textContent = key;
-  const data = DATA[key] || {
-    type:"—", about:"Informações ainda não cadastradas.",
-    courses:[], hours:"—", modalities:[], hasCourt:null, lunch:"—",
-    address:"—", coords:"—", howTo:[], references:[]
-  };
-
-  elType.textContent  = data.type || "—";
-  elAbout.textContent = data.about || "";
-
-  // cursos
-  elCourses.innerHTML = "";
-  (data.courses||[]).forEach(c=>{
-    const d = document.createElement('div');
-    d.className = 'course';
-    d.innerHTML = `<b>${c.name}</b><span>${c.desc||""}</span>`;
-    elCourses.appendChild(d);
-  });
-  if(!data.courses || data.courses.length===0){
-    elCourses.innerHTML = '<p class="p">Sem cursos cadastrados.</p>';
-  }
-
-  // detalhes (dl)
-  elDetails.innerHTML = "";
-  const rows = [
-    ["Horário de funcionamento", data.hours || "—"],
-    ["Modalidades oferecidas", (data.modalities||[]).join(" • ") || "—"],
-    ["Possui quadra?", data.hasCourt===true ? "Sim" : data.hasCourt===false ? "Não" : "—"],
-    ["Almoço", data.lunch || "—"]
-  ];
-  rows.forEach(([k,v])=>{
-    const dt=document.createElement('dt'); dt.textContent=k;
-    const dd=document.createElement('dd'); dd.textContent=v;
-    elDetails.append(dt,dd);
-  });
-
-  // localização
-  elAddr.textContent  = `Endereço: ${data.address}`;
-  elCoords.textContent= data.coords;
-
-  elHow.innerHTML = "";
-  (data.howTo||[]).forEach(i=>{
-    const li=document.createElement('li'); li.textContent=i; elHow.appendChild(li);
-  });
-  if(!data.howTo || data.howTo.length===0){ elHow.innerHTML = '<li>—</li>'; }
-
-  elRefs.innerHTML = "";
-  (data.references||[]).forEach(i=>{
-    const li=document.createElement('li'); li.textContent=i; elRefs.appendChild(li);
-  });
-  if(!data.references || data.references.length===0){ elRefs.innerHTML = '<li>—</li>'; }
-}
-
-/* abrir detalhes ao clicar na lista */
-document.querySelectorAll('#list .card').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const key = btn.getAttribute('data-key');
-    renderDetail(key);
-    screenList.classList.remove('active');
-    screenDetail.classList.add('active');
-    window.scrollTo({top:0,behavior:'instant'});
-  });
 });
 
-/* voltar */
-back.addEventListener('click', ()=>{
-  screenDetail.classList.remove('active');
-  screenList.classList.add('active');
-  window.scrollTo({top:0,behavior:'instant'});
+// substitui os dados da unidade CENTRO pelos reais
+DATA["IEMA PLENO SÃO LUÍS – CENTRO"] = {
+  type: "Centro",
+  about: "Unidade Plena São Luís Centro.",
+  courses: [
+    { name: "Administração", desc: "Executar atividades de gestão como planejamento, organização e liderança." },
+    { name: "Informática", desc: "Foco em programação, sistemas operacionais e bancos de dados." },
+    { name: "Redes de Computadores", desc: "Manter infraestruturas de redes, configurar equipamentos e gerenciar servidores." },
+    { name: "Desenvolvimento de Sistemas", desc: "Projetar, codificar, testar e manter sistemas e aplicativos." }
+  ],
+  hours: "Segunda à Sexta, 08:00 às 19:00",
+  modalities: ["Futsal","Vôlei","Natação","Arco e flecha","Robótica"],
+  hasCourt: true,
+  lunch: "Sim — frango, carne bovina e carne suína.",
+  address: "Rua Osvaldo Cruz, 954, Centro — São Luís/MA",
+  coords: "2°32'25\" S, 44°17'30\" L",
+  howTo: ["Circular Radional/Deodoro"],
+  references: ["Ribeira / IPASE via terminais","Cohama","Maranhão Cultura e Turismo","Liceu Maranhense"]
+};
+
+// === popula lista ===
+const listEl = document.getElementById("list");
+UNIDADES.forEach(nome=>{
+  const btn = document.createElement("button");
+  btn.className="card";
+  btn.dataset.key = nome;
+  btn.innerHTML = `
+    <span class="icon">🏫</span>
+    <span class="meta">
+      <p class="name">${nome}</p>
+      <p class="type">Centro</p>
+    </span>
+    <span class="chev">→</span>
+  `;
+  listEl.appendChild(btn);
+});
+
+// === renderização ===
+const screenList=document.getElementById("screen-list");
+const screenDetail=document.getElementById("screen-detail");
+const back=document.getElementById("btnBack");
+const elName=document.getElementById("detailName");
+const elType=document.getElementById("detailType");
+const elAbout=document.getElementById("about");
+const elCourses=document.getElementById("courses");
+const elDetails=document.getElementById("details");
+const elAddr=document.getElementById("address");
+const elCoords=document.getElementById("coords");
+const elHow=document.getElementById("howto");
+const elRefs=document.getElementById("refs");
+
+function renderDetail(key){
+  const data=DATA[key];
+  elName.textContent=key;
+  elType.textContent=data.type||"—";
+  elAbout.textContent=data.about||"—";
+  elCourses.innerHTML="";
+  data.courses.forEach(c=>{
+    const d=document.createElement("div");
+    d.className="course";
+    d.innerHTML=`<b>${c.name}</b><span>${c.desc}</span>`;
+    elCourses.appendChild(d);
+  });
+  elDetails.innerHTML="";
+  [["Horário de funcionamento",data.hours],
+   ["Modalidades oferecidas",data.modalities.join(" • ")],
+   ["Possui quadra?",data.hasCourt?"Sim":"Não"],
+   ["Almoço",data.lunch]].forEach(([k,v])=>{
+    const dt=document.createElement("dt");dt.textContent=k;
+    const dd=document.createElement("dd");dd.textContent=v;
+    elDetails.append(dt,dd);
+  });
+  elAddr.textContent="Endereço: "+data.address;
+  elCoords.textContent=data.coords;
+  elHow.innerHTML=data.howTo.map(i=>`<li>${i}</li>`).join("");
+  elRefs.innerHTML=data.references.map(i=>`<li>${i}</li>`).join("");
+}
+
+document.addEventListener("click",e=>{
+  const card=e.target.closest(".card");
+  if(card){
+    renderDetail(card.dataset.key);
+    screenList.classList.remove("active");
+    screenDetail.classList.add("active");
+    window.scrollTo({top:0,behavior:"instant"});
+  }
+});
+back.addEventListener("click",()=>{
+  screenDetail.classList.remove("active");
+  screenList.classList.add("active");
+  window.scrollTo({top:0,behavior:"instant"});
 });
 </script>
 </body>
