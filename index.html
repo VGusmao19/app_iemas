@@ -169,22 +169,280 @@ UNIDADES.forEach(nome => {
 // substitui os dados da unidade CENTRO pelos reais
 DATA["IEMA PLENO SÃO LUÍS – CENTRO"] = {
   type: "Centro",
-  about: "Unidade Plena São Luís Centro.",
+  about: "Unidade Plena São Luís Centro, oferecendo ensino médio integrado ao técnico com foco em formação tecnológica e profissional.",
   courses: [
-    { name: "Administração", desc: "Executar atividades de gestão como planejamento, organização e liderança." },
-    { name: "Informática", desc: "Foco em programação, sistemas operacionais e bancos de dados." },
-    { name: "Redes de Computadores", desc: "Manter infraestruturas de redes, configurar equipamentos e gerenciar servidores." },
-    { name: "Desenvolvimento de Sistemas", desc: "Projetar, codificar, testar e manter sistemas e aplicativos." }
+    {
+      name: "Administração",
+      desc: "Executar atividades de gestão como planejamento, organização e liderança, aplicando princípios administrativos e boas práticas de governança."
+    },
+    {
+      name: "Informática",
+      desc: "Foco em programação, sistemas operacionais e bancos de dados, capacitando o aluno a atuar na manutenção e desenvolvimento de soluções digitais."
+    },
+    {
+      name: "Redes de Computadores",
+      desc: "Manter infraestruturas de redes, realizar configuração de equipamentos e gerenciar servidores, garantindo conectividade e segurança dos sistemas."
+    },
+    {
+      name: "Desenvolvimento de Sistemas",
+      desc: "Projetar, codificar, testar e manter sistemas computacionais e aplicativos, utilizando boas práticas de engenharia de software."
+    }
   ],
-  hours: "Segunda à Sexta, 08:00 às 19:00",
-  modalities: ["Futsal","Vôlei","Natação","Arco e flecha","Robótica"],
+  hours: "Segunda à Sexta, das 08:00 às 19:00",
+  modalities: ["Futsal", "Vôlei", "Natação", "Arco e Flecha", "Robótica"],
   hasCourt: true,
   lunch: "Sim — frango, carne bovina e carne suína.",
   address: "Rua Osvaldo Cruz, 954, Centro — São Luís/MA",
   coords: "2°32'25\" S, 44°17'30\" L",
-  howTo: ["Circular Radional/Deodoro"],
-  references: ["Ribeira / IPASE via terminais","Cohama","Maranhão Cultura e Turismo","Liceu Maranhense"]
+  howTo: ["Circular Radional / Deodoro"],
+  references: [
+    "Ribeira / IPASE via terminais",
+    "Instituto Estadual do Maranhão",
+    "Cohama",
+    "Maranhão Cultura e Turismo",
+    "Escola Liceu Maranhense"
+  ]
 };
+
+DATA["IEMA PLENO SÃO LUÍS – MANOEL BECKMAN"] = {
+  type: "Centro",
+  about:
+    "Unidade Plena do IEMA localizada no bairro Bequimão, voltada para a formação técnica e profissional em diversas áreas de gestão, tecnologia e inovação.",
+  courses: [
+    {
+      name: "Técnico em Administração",
+      desc:
+        "Capacita o estudante a atuar em processos de gestão, planejamento, organização, liderança e controle administrativo em instituições públicas e privadas."
+    },
+    {
+      name: "Técnico em Marketing",
+      desc:
+        "Forma profissionais para desenvolver estratégias de comunicação, publicidade e relacionamento com o cliente, promovendo produtos e serviços de forma eficaz."
+    },
+    {
+      name: "Técnico em Desenvolvimento de Sistemas",
+      desc:
+        "Habilita o aluno a projetar, programar, testar e manter sistemas e aplicativos, com foco em linguagens de programação, banco de dados e metodologias ágeis."
+    },
+    {
+      name: "Técnico em Informática",
+      desc:
+        "Capacita o aluno a realizar manutenção e suporte em computadores, redes e softwares, além de auxiliar na implantação de sistemas e infraestrutura tecnológica."
+    }
+  ],
+  hours: "Segunda a Sexta, das 08h às 19h",
+  modalities: ["Cursos variam de ano para ano"],
+  hasCourt: true,
+  lunch:
+    "Sim — frango, arroz, feijão, farofa, carne e macarronada.",
+  address:
+    "Rua 05, S/N – Bequimão, São Luís/MA – CEP: 65080-891 – Tel.: (98) 3214-7671",
+  coords: "Sem coordenadas informadas",
+  howTo: ["Ônibus: linhas com destino a São Francisco e Terminal da Cohama"],
+  references: ["Academia Fit Center", "Quadra esportiva do Rubão"]
+};
+
+DATA["IEMA PLENO SÃO LUÍS – ITAQUI BACANGA"] = {
+  type: "Centro",
+  about:
+    "O Instituto Estadual de Educação, Ciência e Tecnologia do Maranhão – Unidade Itaqui Bacanga, localizado na Vila Embratel, tem como objetivo formar profissionais técnicos qualificados em áreas estratégicas como infraestrutura, tecnologia e segurança, contribuindo para o desenvolvimento regional.",
+  courses: [
+    {
+      name: "Técnico em Edificações",
+      desc:
+        "Forma profissionais aptos a elaborar e executar projetos de construção civil, fiscalizar obras e aplicar normas técnicas de segurança e sustentabilidade."
+    },
+    {
+      name: "Técnico em Eletroeletrônica",
+      desc:
+        "Capacita o aluno para atuar na instalação, manutenção e operação de sistemas e equipamentos elétricos e eletrônicos industriais e residenciais."
+    },
+    {
+      name: "Técnico em Informática para Internet",
+      desc:
+        "Desenvolve habilidades em criação de sites, manutenção de sistemas web, banco de dados e programação voltada para aplicações online."
+    },
+    {
+      name: "Técnico em Portos",
+      desc:
+        "Prepara o estudante para atuar na logística portuária, operações de embarque e desembarque, documentação e segurança de cargas e passageiros."
+    },
+    {
+      name: "Técnico em Segurança do Trabalho",
+      desc:
+        "Capacita o profissional para identificar e controlar riscos ambientais e ocupacionais, promovendo a saúde e segurança dos trabalhadores."
+    }
+  ],
+  hours: "Segunda a Sexta, das 07h00 às 17h00",
+  modalities: ["Futsal", "Vôlei", "Capoeira", "Jogos Eletrônicos", "Atletismo"],
+  hasCourt: true,
+  lunch:
+    "Sim — arroz, feijão, farofa, salada, frango, carne e fígado.",
+  address:
+    "Rua da Estrela, S/N – Vila Embratel, São Luís/MA",
+  coords: "Sem coordenadas informadas",
+  howTo: ["Ônibus: Guapara", "Ônibus: Bacanga", "Ônibus: Anjo da Guarda", "Uber"],
+  references: ["Posto de gasolina", "Igreja Universal"]
+};
+
+DATA["IEMA PLENO SÃO LUÍS – DESEMBARGADOR SARNEY"] = {
+  type: "Centro",
+  about:
+    "O Instituto Estadual de Educação, Ciência e Tecnologia do Maranhão – Unidade Desembargador Sarney, localizado no bairro São Francisco, oferece cursos técnicos nas áreas de tecnologia, estética e serviços jurídicos, promovendo formação profissional de excelência e integração com o mercado de trabalho.",
+  courses: [
+    {
+      name: "Técnico em Informática",
+      desc:
+        "Capacita o aluno a realizar manutenção e suporte em computadores, redes e softwares, além de atuar no desenvolvimento de soluções tecnológicas."
+    },
+    {
+      name: "Técnico em Estética",
+      desc:
+        "Forma profissionais para atuar em cuidados com a pele, corpo e cabelo, utilizando técnicas e procedimentos voltados ao bem-estar e à beleza."
+    },
+    {
+      name: "Técnico em Serviços Jurídicos",
+      desc:
+        "Prepara o estudante para auxiliar em rotinas administrativas e jurídicas, como elaboração de documentos legais e acompanhamento de processos."
+    }
+  ],
+  hours: "Segunda a Sexta, das 09h00 às 17h00",
+  modalities: [],
+  hasCourt: true,
+  lunch: "Sim — refeição oferecida aos alunos durante o período de aulas.",
+  address:
+    "Rua Hemetério Leitão, 173, Bairro São Francisco – CEP: 65076-420 – São Luís/MA",
+  coords: "Latitude: -2.539107 | Longitude: -44.282911",
+  howTo: [
+    "🚗 De carro ou transporte por aplicativo: siga em direção ao bairro São Francisco. O IEMA está localizado próximo à Avenida Castelo Branco e à Rua das Paparaubas. Você pode usar aplicativos de navegação para traçar a melhor rota a partir da sua localização.",
+    "🚌 De transporte público: linhas que passam pela região do São Francisco incluem:",
+    "T064 Jardim Tropical / São Francisco",
+    "T062 Socorrão 2 / Rodoviária",
+    "T061 Santa Clara / João Paulo",
+    "956 Raposa / Holandeses"
+  ],
+  references: [
+    "Avenida Castelo Branco — importante via próxima ao IEMA.",
+    "Rua das Paparaubas — área adjacente à unidade.",
+    "Faculdade Anhanguera — instituição parceira que realiza visitas técnicas com alunos do IEMA."
+  ]
+};
+
+DATA["IEMA PLENO SÃO LUÍS – SOUSÂNDRADE"] = {
+  type: "Centro",
+  about:
+    "O IEMA Pleno São Luís – Unidade Sousândrade integra o Instituto Estadual de Educação, Ciência e Tecnologia do Maranhão (IEMA) e oferece ensino técnico em tempo integral, unindo formação profissional e acadêmica. A unidade se destaca pela infraestrutura moderna, foco na prática e incentivo às atividades culturais e esportivas.",
+  courses: [
+    {
+      name: "Técnico em Informática",
+      desc:
+        "Capacita o estudante a atuar com manutenção de computadores, redes e sistemas, além de desenvolvimento e suporte de software."
+    },
+    {
+      name: "Técnico em Desenvolvimento de Sistemas",
+      desc:
+        "Forma profissionais capazes de projetar, desenvolver e manter sistemas computacionais e aplicativos para diferentes plataformas."
+    },
+    {
+      name: "Técnico em Administração",
+      desc:
+        "Prepara o aluno para desempenhar funções administrativas e gerenciais, com foco em planejamento, organização e liderança."
+    },
+    {
+      name: "Técnico em Gerência e Saúde",
+      desc:
+        "Capacita o profissional a apoiar a gestão e o planejamento de instituições de saúde, promovendo qualidade e eficiência nos serviços."
+    },
+    {
+      name: "Técnico em Marketing Digital",
+      desc:
+        "Forma profissionais para planejar e executar estratégias de comunicação, publicidade e vendas no ambiente digital."
+    }
+  ],
+  hours: "Segunda a Sexta, das 07h00 às 17h00",
+  modalities: ["Futsal", "Vôlei"],
+  hasCourt: true,
+  lunch: "Almoço servido diariamente às 12h.",
+  address:
+    "Praça São Roque, nº 01, Bairro Lira – CEP: 65026-240 – São Luís/MA",
+  coords: "Sem coordenadas informadas",
+  howTo: [
+    "Para chegar ao IEMA Pleno Sousândrade, vá até o Bairro Lira em São Luís.",
+    "A unidade está localizada na Praça São Roque, nº 01.",
+    "Use qualquer ônibus que passe pelo Bairro Lira ou pelo centro de São Luís e peça para descer próximo à Praça São Roque.",
+    "A unidade fica próxima a pontos de referência locais do Bairro Lira."
+  ],
+  references: [
+    "Praça São Roque – principal ponto de referência do Bairro Lira.",
+    "Bairro Lira – região central de São Luís onde a unidade está localizada."
+  ],
+  extraCourses: [
+    "Recursos Naturais",
+    "Produção Cultural e Design",
+    "Turismo, Lazer e Eventos"
+  ]
+};
+
+DATA["IEMA PLENO SÃO LUÍS – JARDIM AMÉRICA"] = {
+  type: "Centro",
+  about:
+    "O Instituto Estadual de Educação, Ciência e Tecnologia do Maranhão – Unidade Plena Jardim América oferece ensino médio em tempo integral, integrado à formação técnica profissional. A instituição busca unir inovação, tecnologia e cidadania, formando jovens preparados para o mercado de trabalho e para o ensino superior.",
+  courses: [
+    {
+      name: "Técnico em Informática 💻",
+      desc:
+        "Forma profissionais capazes de desenvolver, instalar e manter sistemas computacionais. O aluno aprende lógica de programação, redes, banco de dados e criação de aplicativos e sites."
+    },
+    {
+      name: "Técnico em Logística 📦",
+      desc:
+        "Ensina como planejar e coordenar o transporte, armazenamento e distribuição de produtos. O aluno aprende gestão de estoques, cadeia de suprimentos e controle de qualidade."
+    },
+    {
+      name: "Técnico em Meio Ambiente 🌱",
+      desc:
+        "Prepara o estudante para atuar na preservação ambiental, controle de poluição e uso sustentável dos recursos naturais. Inclui estudos de ecologia, legislação ambiental e sustentabilidade."
+    },
+    {
+      name: "Técnico em Serviços Jurídicos ⚖️",
+      desc:
+        "Forma profissionais que auxiliam em escritórios de advocacia e órgãos públicos. O aluno aprende noções de Direito, processos judiciais, ética e documentação jurídica."
+    },
+    {
+      name: "Técnico em Administração 📊",
+      desc:
+        "Desenvolve habilidades em gestão de empresas, finanças, marketing e recursos humanos. O aluno aprende a planejar, organizar e coordenar atividades administrativas."
+    }
+  ],
+  hours: "Segunda a Sexta, das 07h30 às 17h30",
+  modalities: [
+    "Futebol",
+    "Futsal",
+    "Vôlei",
+    "Basquete",
+    "Handebol",
+    "Atletismo",
+    "Dança",
+    "Ginástica"
+  ],
+  hasCourt: true,
+  lunch:
+    "Sim — servido entre 11h30 e 13h00, com cardápio supervisionado por nutricionistas e alimentação gratuita aos alunos.",
+  address:
+    "Av. 2, nº 200 – Jardim América, São Luís – MA, CEP 65066-410",
+  coords: "Sem coordenadas informadas",
+  howTo: [
+    "Ônibus: Jardim América / Terminal Cohab",
+    "Ônibus: Jardim América / Centro",
+    "Ônibus: Jardim América / Terminal São Cristóvão",
+    "Acesso principal pela Avenida 2, próximo à Unidade de Saúde Jardim América"
+  ],
+  references: [
+    "Unidade de Saúde Jardim América",
+    "Bairro Jardim América – São Luís/MA"
+  ]
+};
+
 
 // === popula lista ===
 const listEl = document.getElementById("list");
