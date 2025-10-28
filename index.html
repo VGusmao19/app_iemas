@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>IEMA – Unidades</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#0f172a;          /* texto principal */
+      --muted:#6b7280;        /* texto secundário */
+      --line:#e5e7eb;         /* bordas sutis */
+      --card:#f8fafc;         /* fundo do card */
+      --accent:#0f172a;       /* botões escuros */
+      --radius:16px;
+      --container: 420px;     /* largura similar a mobile */
+      --shadow:0 6px 18px rgba(15,23,42,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    img,svg{display:block}
+    .container{max-width:var(--container);margin:0 auto;padding:16px 16px 24px}
+
+    /* Header simples */
+    .header{padding:10px 16px}
+    .title{font-weight:700;text-align:center;margin:6px 0 2px}
+    .subtitle{color:var(--muted);text-align:center;font-size:14px;margin:0 0 8px}
+
+    /* Lista de unidades */
+    .hint{margin:18px 0 10px;font-weight:600}
+    .list{display:grid;gap:12px}
+    .card{
+      background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;
+      display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)
+    }
+    .card .icon{
+      width:28px;height:28px;border-radius:8px;background:var(--card);
+      display:grid;place-items:center;font-size:16px;color:var(--ink);
+      flex:0 0 28px
+    }
+    .card .meta{flex:1 1 auto;min-width:0}
+    .card .name{font-weight:600;margin:0 0 2px;font-size:15px}
+    .card .type{margin:0;color:var(--muted);font-size:13px}
+    .card .chev{margin-left:auto;opacity:.55}
+
+    /* Botão primário inferior (detalhes) */
+    .sticky-action{
+      position:sticky;bottom:0;background:var(--bg);padding:12px 16px;
+    }
+    .btn{
+      width:100%;display:inline-flex;align-items:center;justify-content:center;
+      gap:8px;border-radius:10px;border:1px solid #0f172a;
+      background:var(--accent);color:#fff;padding:14px 16px;font-weight:600
+    }
+
+    /* Tela de detalhes */
+    .topbar{
+      display:flex;gap:8px;align-items:center;margin-bottom:8px
+    }
+    .back{
+      border:none;background:#fff;border:1px solid var(--line);border-radius:12px;
+      padding:8px 10px;box-shadow:var(--shadow)
+    }
+    .detail-card{
+      background:#fff;border:1px solid var(--line);border-radius:16px;
+      padding:16px;box-shadow:var(--shadow)
+    }
+    .detail-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+    .detail-head .icon{width:28px;height:28px;border-radius:8px;background:var(--card);
+      display:grid;place-items:center}
+    .detail-name{margin:0;font-weight:700}
+    .detail-type{margin:0;color:var(--muted);font-size:13px}
+    .section-title{margin:18px 0 8px;font-weight:700}
+    .p{margin:0;color:#1f2937}
+
+    /* Estados de tela */
+    .screen{display:none}
+    .screen.active{display:block}
+
+    /* Acessibilidade e toques confortáveis */
+    .card, .btn, .back{touch-action:manipulation}
+  </style>
+</head>
+<body>
+
+  <!-- TELA 1: Lista -->
+  <section id="screen-list" class="screen active">
+    <header class="header">
+      <h1 class="title">IEMA</h1>
+      <p class="subtitle">Instituto de Educação, Ciência e Tecnologia do Maranhão</p>
+    </header>
+
+    <div class="container">
+      <p class="hint">Selecione uma unidade:</p>
+      <div class="list" id="list">
+        <!-- Itens inseridos pelo HTML (você pode alterar direto aqui também) -->
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – BACELAR PORTELA">
+          <span class="icon" aria-hidden="true">🏫</span>
+          <span class="meta">
+            <p class="name">IEMA PLENO SÃO LUÍS – BACELAR PORTELA</p>
+            <p class="type">Centro</p>
+          </span>
+          <span class="chev" aria-hidden="true">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – CENTRO">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – CENTRO</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – CIDADE DE SÃO LUÍS">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – CIDADE DE SÃO LUÍS</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – DESEMBARGADOR SARNEY">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – DESEMBARGADOR SARNEY</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – GONÇALVES DIAS">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – GONÇALVES DIAS</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – ITAQUI BACANGA">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – ITAQUI BACANGA</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – JARDIM AMÉRICA">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – JARDIM AMÉRICA</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – MANOEL BECKMAN">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – MANOEL BECKMAN</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – MÁRIO MARTINS MEIRELES">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – MÁRIO MARTINS MEIRELES</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – MÔNICA VALE">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – MÔNICA VALE</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – NEWTON BARJONAS LOBÃO">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – NEWTON BARJONAS LOBÃO</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – RIO ANIL">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – RIO ANIL</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – SOUSÂNDRADE">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – SOUSÂNDRADE</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+
+        <button class="card" data-name="IEMA PLENO SÃO LUÍS – TAMANCÃO">
+          <span class="icon">🏫</span>
+          <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – TAMANCÃO</p><p class="type">Centro</p></span>
+          <span class="chev">→</span>
+        </button>
+      </div>
+
+      <p class="subtitle" style="margin-top:16px;text-align:center">
+        Acesse informações sobre cursos, localização e muito mais
+      </p>
+    </div>
+  </section>
+
+  <!-- TELA 2: Detalhes -->
+  <section id="screen-detail" class="screen" aria-live="polite">
+    <div class="container">
+      <div class="topbar">
+        <button class="back" id="btnBack" aria-label="Voltar">←</button>
+        <strong>Detalhes da Unidade</strong>
+      </div>
+
+      <article class="detail-card">
+        <div class="detail-head">
+          <span class="icon" aria-hidden="true">🏫</span>
+          <div>
+            <h2 id="detailName" class="detail-name">Nome da Unidade</h2>
+            <p class="detail-type">Centro</p>
+          </div>
+        </div>
+
+        <h3 class="section-title">Sobre a Instituição</h3>
+        <p class="p">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque minus
+          recusandae accusamus delectus cumque, quia veritatis, assumenda
+          repudiandae reprehenderit dignissimos temporibus officia. Laboriosam
+          quae, impedit non repellat ducimus?
+        </p>
+      </article>
+
+      <div class="sticky-action">
+        <button class="btn" type="button">📍 Ver Localização</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Navegação simples entre telas
+    const screenList = document.getElementById('screen-list');
+    const screenDetail = document.getElementById('screen-detail');
+    const detailName = document.getElementById('detailName');
+    const back = document.getElementById('btnBack');
+
+    // Abrir detalhes
+    document.querySelectorAll('#list .card').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const name = btn.getAttribute('data-name') || btn.querySelector('.name')?.textContent;
+        detailName.textContent = name;
+        screenList.classList.remove('active');
+        screenDetail.classList.add('active');
+        window.scrollTo({top:0,behavior:'instant'});
+      });
+    });
+
+    // Voltar para lista
+    back.addEventListener('click', ()=>{
+      screenDetail.classList.remove('active');
+      screenList.classList.add('active');
+      window.scrollTo({top:0,behavior:'instant'});
+    });
+  </script>
+</body>
+</html>
