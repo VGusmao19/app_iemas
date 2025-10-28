@@ -7,26 +7,23 @@
   <style>
     :root{
       --bg:#ffffff;
-      --ink:#0f172a;          /* texto principal */
-      --muted:#6b7280;        /* texto secundário */
-      --line:#e5e7eb;         /* bordas sutis */
-      --card:#f8fafc;         /* fundo do card */
-      --accent:#0f172a;       /* botões escuros */
+      --ink:#0f172a;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --card:#f8fafc;
+      --accent:#0f172a;
       --radius:16px;
-      --container: 420px;     /* largura similar a mobile */
+      --container:420px;
       --shadow:0 6px 18px rgba(15,23,42,.06);
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-    img,svg{display:block}
     .container{max-width:var(--container);margin:0 auto;padding:16px 16px 24px}
 
-    /* Header simples */
     .header{padding:10px 16px}
     .title{font-weight:700;text-align:center;margin:6px 0 2px}
     .subtitle{color:var(--muted);text-align:center;font-size:14px;margin:0 0 8px}
 
-    /* Lista de unidades */
     .hint{margin:18px 0 10px;font-weight:600}
     .list{display:grid;gap:12px}
     .card{
@@ -43,20 +40,14 @@
     .card .type{margin:0;color:var(--muted);font-size:13px}
     .card .chev{margin-left:auto;opacity:.55}
 
-    /* Botão primário inferior (detalhes) */
-    .sticky-action{
-      position:sticky;bottom:0;background:var(--bg);padding:12px 16px;
-    }
+    .sticky-action{position:sticky;bottom:0;background:var(--bg);padding:12px 16px}
     .btn{
       width:100%;display:inline-flex;align-items:center;justify-content:center;
       gap:8px;border-radius:10px;border:1px solid #0f172a;
       background:var(--accent);color:#fff;padding:14px 16px;font-weight:600
     }
 
-    /* Tela de detalhes */
-    .topbar{
-      display:flex;gap:8px;align-items:center;margin-bottom:8px
-    }
+    .topbar{display:flex;gap:8px;align-items:center;margin-bottom:8px}
     .back{
       border:none;background:#fff;border:1px solid var(--line);border-radius:12px;
       padding:8px 10px;box-shadow:var(--shadow)
@@ -73,11 +64,28 @@
     .section-title{margin:18px 0 8px;font-weight:700}
     .p{margin:0;color:#1f2937}
 
-    /* Estados de tela */
+    /* Cursos (chips) */
+    .chips{display:grid;gap:10px}
+    .chip{
+      background:#eceff3;border:1px solid var(--line);color:#111;
+      padding:10px 12px;border-radius:10px;font-size:14px
+    }
+
+    /* Detalhes (lista de definição) */
+    dl{margin:0}
+    dt{font-weight:600;margin-top:10px}
+    dd{margin:4px 0 0 0;color:#1f2937}
+
+    /* Mapa/Localização (placeholder) */
+    .map{
+      border:1px dashed #cbd5e1;border-radius:12px;background:linear-gradient(180deg,#f8fafc,#f1f5f9);
+      height:160px;display:grid;place-items:center;color:#64748b;font-size:14px
+    }
+    .address{margin:8px 0 0;color:#1f2937}
+
     .screen{display:none}
     .screen.active{display:block}
 
-    /* Acessibilidade e toques confortáveis */
     .card, .btn, .back{touch-action:manipulation}
   </style>
 </head>
@@ -93,7 +101,7 @@
     <div class="container">
       <p class="hint">Selecione uma unidade:</p>
       <div class="list" id="list">
-        <!-- Itens inseridos pelo HTML (você pode alterar direto aqui também) -->
+
         <button class="card" data-name="IEMA PLENO SÃO LUÍS – BACELAR PORTELA">
           <span class="icon" aria-hidden="true">🏫</span>
           <span class="meta">
@@ -180,6 +188,7 @@
           <span class="meta"><p class="name">IEMA PLENO SÃO LUÍS – TAMANCÃO</p><p class="type">Centro</p></span>
           <span class="chev">→</span>
         </button>
+
       </div>
 
       <p class="subtitle" style="margin-top:16px;text-align:center">
@@ -205,6 +214,7 @@
           </div>
         </div>
 
+        <!-- SOBRE -->
         <h3 class="section-title">Sobre a Instituição</h3>
         <p class="p">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque minus
@@ -212,6 +222,33 @@
           repudiandae reprehenderit dignissimos temporibus officia. Laboriosam
           quae, impedit non repellat ducimus?
         </p>
+
+        <!-- CURSOS OFERECIDOS -->
+        <h3 class="section-title">Cursos Oferecidos</h3>
+        <div class="chips" aria-label="Lista de cursos">
+          <span class="chip">Técnico em Informática</span>
+          <span class="chip">Técnico em Administração</span>
+          <span class="chip">Técnico em Agropecuária</span>
+          <!-- adicione/remova chips conforme necessário -->
+        </div>
+
+        <!-- DETALHES DA INSTITUIÇÃO -->
+        <h3 class="section-title">Detalhes da Instituição</h3>
+        <dl>
+          <dt>Tipo</dt>
+          <dd>Centro</dd>
+          <dt>Turnos</dt>
+          <dd>Matutino • Vespertino • Noturno</dd>
+          <dt>Contato</dt>
+          <dd>(98) 0000-0000 • contato@iema.ma.gov.br</dd>
+        </dl>
+
+        <!-- LOCALIZAÇÃO -->
+        <h3 class="section-title">Localização</h3>
+        <div class="map" role="img" aria-label="Mapa ilustrativo">
+          Mapa/preview da localização
+        </div>
+        <p class="address">Endereço: Lorem ipsum, 123 – Bairro Exemplo, São Luís – MA</p>
       </article>
 
       <div class="sticky-action">
@@ -221,13 +258,11 @@
   </section>
 
   <script>
-    // Navegação simples entre telas
     const screenList = document.getElementById('screen-list');
     const screenDetail = document.getElementById('screen-detail');
     const detailName = document.getElementById('detailName');
     const back = document.getElementById('btnBack');
 
-    // Abrir detalhes
     document.querySelectorAll('#list .card').forEach(btn=>{
       btn.addEventListener('click', ()=>{
         const name = btn.getAttribute('data-name') || btn.querySelector('.name')?.textContent;
@@ -238,7 +273,6 @@
       });
     });
 
-    // Voltar para lista
     back.addEventListener('click', ()=>{
       screenDetail.classList.remove('active');
       screenList.classList.add('active');
